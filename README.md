@@ -1,3 +1,5 @@
+before starting the project, make sure you have a modern version of node installed and run `npm install` from the project folder.
+
 ## Available Scripts
 
 In the project directory, you can run:

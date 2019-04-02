@@ -10,11 +10,11 @@ class UserTable extends Component {
 	}
 
 	renderUserRow(user) {
-		const { login, picture, name, location } = user;
+		const { picture, name, location } = user;
 		const userName = `${name.first} ${name.last}`;
 
 		return (
-			<div className="usertable__row" key={login.username}>
+			<div className="usertable__row" key={userName}>
 				<img 
 					className="usertable__row-user-picture" 
 					src={picture.medium} 
