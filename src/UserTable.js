@@ -50,10 +50,10 @@ class UserTable extends Component {
 					placeholder="Search..." 
 					onChange={this.handleSearchChange}
 				/>
-				<span className="usertable__search-hits">
+				<span className="usertable__search-hits" aria-live="polite">
 					{usersToDisplay.length} results
 				</span>
-				<div className="usertable__users">
+				<div className="usertable__users" aria-live="polite">
 					{error ? 
 						"There was an error fetching users, please try again" : 
 						loading ? 
