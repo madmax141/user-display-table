@@ -3,6 +3,12 @@ import './UserTable.css';
 
 class UserTable extends Component {
 
+	state = { filterText: '' }
+
+	handleSearchChange = (e) => {
+		this.setState({ filterText: e.target.value });
+	}
+
 	renderUserRow(user) {
 		const { login, picture, name, location } = user;
 
@@ -25,10 +31,23 @@ class UserTable extends Component {
 
 	render() {
 		const { userData } = this.props;
+		const { filterText } = this.state;
+		const filteredUsers = userData.filter(
+			user => 
+				user.name.first.includes(filterText) || 
+				user.name.last.includes(filterText)
+		);
+		const usersToDisplay = filteredUsers.length ? filteredUsers : userData;
 
 		return (
 			<div className="usertable">
-				{userData.map(user => this.renderUserRow(user))}
+				<input 
+					type="text" 
+					aria-label="Search Users" 
+					placeholder="Search..." 
+					onChange={this.handleSearchChange}
+				/>
+				{usersToDisplay.map(user => this.renderUserRow(user))}
 			</div>
 		)
 	}
