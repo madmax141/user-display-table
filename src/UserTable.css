@@ -1,3 +1,29 @@
+.usertable__search-input {
+	padding: 5px;
+	margin-right: 10px;
+	width: 50%;
+}
+
+.usertable__search-hits {
+	font-size: .8em;
+	font-style: italic;
+}
+
 .usertable__row {
 	display: flex;
+	margin: 20px 0;
+	border: 1px solid black;
+}
+
+.usertable__row-user-picture {
+	padding-right: 20px;
+}
+
+.usertable__row-user-data {
+	padding-top: 5px;
+}
+
+.usertable__row-user-name {
+	margin-bottom: 5px;
+	text-transform: capitalize;
 }
