@@ -10,6 +10,7 @@ class App extends Component {
     try {
       const response = await fetch('https://randomuser.me/api/?results=100');
       const resultJson = await response.json();
+      
       this.setState({ userData: resultJson.results, loading: false });
     } catch(e) {
       this.setState({ error: true, loading: false });
