@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './UserTable.css';
 
 class UserTable extends Component {
 
@@ -8,7 +9,7 @@ class UserTable extends Component {
 		return (
 			<div className="usertable__row" key={login.username}>
 				<div className="usertable__row-image-wrap">
-					<img src={picture.thumbnail} />
+					<img src={picture.medium} />
 				</div>
 				<div className="usertable__row-user-data">
 					<div classsName="usertable__row-user-name">
