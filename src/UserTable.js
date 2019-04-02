@@ -36,8 +36,8 @@ class UserTable extends Component {
 		const { userData } = this.props;
 		const { filterText } = this.state;
 		const filteredUsers = userData.filter(user => 
-			user.name.first.includes(filterText) || 
-			user.name.last.includes(filterText)
+			user.name.first.includes(filterText.toLowerCase()) || 
+			user.name.last.includes(filterText.toLowerCase())
 		);
 		const usersToDisplay = filteredUsers.length ? filteredUsers : userData;
 
