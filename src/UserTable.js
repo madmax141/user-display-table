@@ -33,7 +33,7 @@ class UserTable extends Component {
 	}
 
 	render() {
-		const { userData } = this.props;
+		const { userData, loading, error } = this.props;
 		const { filterText } = this.state;
 		const filteredUsers = userData.filter(user => 
 			user.name.first.includes(filterText.toLowerCase()) || 
@@ -53,7 +53,14 @@ class UserTable extends Component {
 				<span className="usertable__search-hits">
 					{usersToDisplay.length} results
 				</span>
-				{usersToDisplay.map(user => this.renderUserRow(user))}
+				<div className="usertable__users">
+					{error ? 
+						"There was an error fetching users, please try again" : 
+						loading ? 
+							"Loading..." :
+							usersToDisplay.map(user => this.renderUserRow(user))
+					}
+				</div>
 			</div>
 		)
 	}

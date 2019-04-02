@@ -4,19 +4,28 @@ import UserTable from './UserTable';
 
 class App extends Component {
 
-  state = { userData: [] }
+  state = { userData: [], error: false, loading: true }
 
   async componentDidMount() {
-    const response = await fetch('https://randomuser.me/api/?results=100');
-    const resultJson = await response.json();
-
-    this.setState({ userData: resultJson.results });
+    try {
+      const response = await fetch('https://randomuser.me/api/?results=100');
+      const resultJson = await response.json();
+      this.setState({ userData: resultJson.results, loading: false });
+    } catch(e) {
+      this.setState({ error: true, loading: false });
+    }
   }
 
   render() {
+    const { error, userData, loading } = this.state;
+
     return (
       <div className="App">
-        <UserTable userData={this.state.userData} />
+        <UserTable 
+          userData={userData} 
+          loading={loading}
+          error={error} 
+        />
       </div>
     );
   }
