@@ -32,10 +32,9 @@ class UserTable extends Component {
 	render() {
 		const { userData } = this.props;
 		const { filterText } = this.state;
-		const filteredUsers = userData.filter(
-			user => 
-				user.name.first.includes(filterText) || 
-				user.name.last.includes(filterText)
+		const filteredUsers = userData.filter(user => 
+			user.name.first.includes(filterText) || 
+			user.name.last.includes(filterText)
 		);
 		const usersToDisplay = filteredUsers.length ? filteredUsers : userData;
 
@@ -47,6 +46,9 @@ class UserTable extends Component {
 					placeholder="Search..." 
 					onChange={this.handleSearchChange}
 				/>
+				<span className="usertable__search-hits">
+					{usersToDisplay.length} results
+				</span>
 				{usersToDisplay.map(user => this.renderUserRow(user))}
 			</div>
 		)
