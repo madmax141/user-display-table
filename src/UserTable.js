@@ -33,13 +33,13 @@ class UserTable extends Component {
 	}
 
 	render() {
-		const { userData, loading, error } = this.props;
+		const { userData: allUsers, loading, error } = this.props;
 		const { filterText } = this.state;
-		const filteredUsers = userData.filter(user => 
+		const filteredUsers = allUsers.filter(user => 
 			user.name.first.includes(filterText.toLowerCase()) || 
 			user.name.last.includes(filterText.toLowerCase())
 		);
-		const usersToDisplay = filteredUsers.length ? filteredUsers : userData;
+		const usersToDisplay = filteredUsers.length ? filteredUsers : allUsers;
 
 		return (
 			<div className="usertable">
