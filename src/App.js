@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import UserTable from './UserTable';
 
 class App extends Component {
 
@@ -15,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        Initial
+        <UserTable userData={this.state.userData} />
       </div>
     );
   }
